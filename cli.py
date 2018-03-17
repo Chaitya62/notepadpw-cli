@@ -16,7 +16,7 @@ Options:
 '''
 
 from docopt import docopt
-from spider import Spider
+from update_content import Notepad
 from termcolor import cprint
 import os
 
@@ -32,25 +32,24 @@ def start():
 
 
 	link = arguments.get('LINK', None)
-	link = "https://notepad.pw/" + link
 
 
 	try: 
 
 		cprint('Conneting to notepad.pw....','green')
 
-		spy = Spider(link)
+		notepad = Notepad(link)
 
 	except Exception as e:
 
 		cprint("\nError: Something went wrong...", 'red')
 		return -1
 
-	if(spy.url_key == '' and spy.pad_key == ''):
+	if(notepad.haspw):
 		cprint('\nPASS: The given url is password protected', 'yellow')
 	else:
 		cprint("\nSaving {} to {}..... \n".format(filename,link), 'green')
-		spy.save(file_path, True)
+		notepad.save_file(file_path, True)
 
 
 

@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# server
+server.js
+
+# virtualenv
+notepadpw-cli/
