@@ -48,6 +48,17 @@ npw -lo file_path urlpath
 
 ```
 
+To watch the file for changes add `--watch` or `-w` flag
+
+Example
+
+```bash
+
+npw -low file_path urlpath
+
+```
+
+
 ![Usage](./usage.gif)
 
 
