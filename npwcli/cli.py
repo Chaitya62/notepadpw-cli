@@ -14,10 +14,14 @@ Options:
 --version       	Show version
 -l, --live-update   Enable live update on notepad
 -o, --overwrite     Overwrite notepad contents
+-w ,--watch         Watch file for changes 
+
+Note: Watch mode will overwrite contents of the notepad
 
 """
 
 import os
+import time
 
 from docopt import docopt
 from termcolor import cprint
@@ -27,6 +31,12 @@ from pprint import pprint
 from npwcli.update_content import Notepad
 from npwcli import __version__
 
+
+
+
+WARNING = 'red'
+MESSAGE = 'blue'
+SUCCESS = 'green'
 
 
 
@@ -43,6 +53,7 @@ def start():
 
 
 	live_update = arguments.get('--live-update', False)
+	watch = arguments.get('--watch', False)
 
 
 
@@ -51,23 +62,39 @@ def start():
 
 	try: 
 
-		cprint('Connecting to notepad.pw....','blue')
+		cprint('Connecting to notepad.pw....',MESSAGE)
 
 		notepad = Notepad(link, live_update=live_update)
 
 	except Exception as e:
 
-		cprint("\nError: Something went wrong...", 'red')
+		cprint("\nError: Something went wrong...", WARNING)
 		return -1
 
 	
 
+
 	if(notepad.haspw):
-		cprint('\nPASS: The given url is password protected', 'yellow')
+		cprint('\nPASS: The given url is password protected', MESSAGE)
 	else:
-		cprint("\nSaving {} to {}..... \n".format(filename,link), 'green')
+		cprint("Saving {} to {}..... \n".format(filename,link), SUCCESS)
 		notepad.save_file(file_path, arguments['--overwrite'])
 
+		try:
+
+			if watch:
+				cprint('Watching {} for changes'.format(filename),MESSAGE)
+
+			while watch:
+				time.sleep(5)
+				if notepad.is_file_content_changed():
+					cprint('\nChanges detected', MESSAGE)
+					notepad.save_file(file_path, True)
+					cprint('Changes saved',MESSAGE)
+
+		except  KeyboardInterrupt:
+
+			cprint('\nClosing npw', MESSAGE) 
 
 
 	

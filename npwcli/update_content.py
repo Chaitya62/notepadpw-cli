@@ -1,5 +1,6 @@
-import logging
 import os
+import logging
+
 
 from socketIO_client import SocketIO, LoggingNamespace, BaseNamespace
 
@@ -18,6 +19,8 @@ class NotepadSocket(SocketIO):
         self.socket_url = 'https://live.notepad.pw'
         self.port = 443
         self.url_key = url_key
+        self.filepath = ''
+        self.file_stamp = 0
 
 
         # self.io = SocketIO(self.socket_url, self.port, BaseNamespace)
@@ -75,9 +78,21 @@ class Notepad:
         return content
 
 
+    def is_file_content_changed(self):
+
+        new_file_stamp = os.stat(self.filepath).st_mtime
+
+        if(new_file_stamp != self.file_stamp):
+            return True
+        return False
+
+
     def save_file(self, filepath, overwrite):
 
         file_content = self.get_content_from_file_path(filepath)
+
+        self.filepath = filepath
+        self.file_stamp = os.stat(filepath).st_mtime
 
         if(overwrite):
             self.content = file_content
