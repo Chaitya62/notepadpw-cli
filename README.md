@@ -2,7 +2,7 @@
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
-A notepad.pw magician in your command line
+A [notepad.pw](https://notepad.pw/about) magician in your command line
 
 
 ### Installing
