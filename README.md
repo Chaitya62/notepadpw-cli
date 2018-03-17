@@ -1,6 +1,8 @@
 # Notepadpw CLI
 
-A notepad.pw magician in your command line
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+
+A [notepad.pw](https://notepad.pw/about) magician in your command line
 
 
 ### Installing
@@ -46,8 +48,7 @@ npw -lo file_path urlpath
 
 ```
 
-
-[![asciicast](https://asciinema.org/a/YAxEa0iWpZi3CK82joQk2MJrD.png)](https://asciinema.org/a/YAxEa0iWpZi3CK82joQk2MJrD)
+![Usage](./usage.gif)
 
 
 
