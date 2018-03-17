@@ -1,13 +1,12 @@
-#!/usr/bin/python3
-
+#!/usr/bin/env python3
 '''
 
-Usage: cli.py FILE LINK
+Usage: npwcli FILE LINK
 
 
 Examples:
 
-	python3 cli.py test.py
+	npwcli test.py testingthiscli
 
 
 Options:
@@ -16,7 +15,7 @@ Options:
 '''
 
 from docopt import docopt
-from update_content import Notepad
+from npwcli.update_content import Notepad
 from termcolor import cprint
 import os
 
@@ -57,8 +56,3 @@ def start():
 
 
 
-	# if(filename):
-	# 	print(filename)
-
-
-start()

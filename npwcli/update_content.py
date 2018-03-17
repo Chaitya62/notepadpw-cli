@@ -5,7 +5,7 @@ from socketIO_client import SocketIO, LoggingNamespace, BaseNamespace
 
 
 
-from spider import Spider
+from npwcli.spider import Spider
 
 
 
@@ -15,23 +15,23 @@ class NotepadSocket(SocketIO):
 
     def __init__(self, url_key):
 
-        # logging.getLogger('socketIO-client').setLevel(logging.DEBUG)
-        # logging.basicConfig()
         self.socket_url = 'https://live.notepad.pw'
         self.port = 443
         self.url_key = url_key
 
 
-        self.io = SocketIO(self.socket_url, self.port, BaseNamespace)
+        # self.io = SocketIO(self.socket_url, self.port, BaseNamespace)
+
+        super().__init__(self.socket_url, self.port, BaseNamespace)
+
+        # logging.getLogger('socketIO-client').setLevel(logging.DEBUG)
+        # logging.basicConfig()
+        
      
 
 
-    def emit_eve(self, event, data):
-        self.io.emit(event, data)
-
-
     def join_room(self):
-        self.emit_eve('join_room', self.url_key)
+        self.emit('join_room', self.url_key)
 
     def publish(self, content):
 
@@ -42,7 +42,7 @@ class NotepadSocket(SocketIO):
         io_data['text'] = content
         io_data['cursor_location'] = len(content)-1
 
-        self.emit_eve('editing', io_data)
+        self.emit('editing', io_data)
 
     
         

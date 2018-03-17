@@ -7,7 +7,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 
 from brotli import decompress
 
-from utils import is_url, make_url
+from npwcli.utils import is_url, make_url
 
 
 
