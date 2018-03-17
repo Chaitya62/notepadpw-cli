@@ -1,0 +1,12 @@
+Brotli==1.0.1
+certifi==2018.1.18
+chardet==3.0.4
+docopt==0.6.1
+docopts==0.6.1
+idna==2.6
+requests==2.18.4
+six==1.11.0
+socketIO-client==0.7.2
+termcolor==1.1.0
+urllib3==1.22
+websocket-client==0.47.0
