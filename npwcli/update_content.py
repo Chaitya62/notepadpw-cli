@@ -58,7 +58,11 @@ class Notepad:
         self.content = self.spider.content
         self.haspw = (self.spider.url_key == '' and self.spider.pad_key == '')
 
-        self.io = NotepadSocket(self.url_key) if live_update else None  
+        self.io = None
+
+        if live_update:
+            self.io = NotepadSocket(self.url_key)
+            self.io.join_room()
 
 
     def get_content_from_file_path(self, file_path):
