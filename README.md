@@ -5,8 +5,7 @@ A notepad.pw magician in your command line
 
 To save contents of a file to https://notepad.pw/urlpath
 
-`bash
-
+```bash
 ./cli.py filename urlpath
-`
+```
 `
