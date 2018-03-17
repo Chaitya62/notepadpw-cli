@@ -17,11 +17,15 @@ Options:
 
 """
 
+import os
+
 from docopt import docopt
-from npwcli.update_content import Notepad
 from termcolor import cprint
 from pprint import pprint
-import os
+
+
+from npwcli.update_content import Notepad
+from npwcli import __version__
 
 
 
@@ -30,7 +34,7 @@ import os
 def start():
 
 
-	arguments = docopt(__doc__, version='npw version 0.0.1')
+	arguments = docopt(__doc__, version='npw version '+'.'.join(str(i) for i in __version__))
 	
 
 	filename = arguments.get('FILE', None)
@@ -47,7 +51,7 @@ def start():
 
 	try: 
 
-		cprint('Connecting to notepad.pw....','green')
+		cprint('Connecting to notepad.pw....','blue')
 
 		notepad = Notepad(link, live_update=live_update)
 
