@@ -1,12 +1,11 @@
 # notepadpw-cli
 A notepad.pw magician in your command line
 
-#Usage
+# Usage
 
 To save contents of a file to https://notepad.pw/urlpath
 
-`sh
-
+```bash
 ./cli.py filename urlpath
-
+```
 `
