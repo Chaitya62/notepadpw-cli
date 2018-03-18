@@ -25,7 +25,7 @@ Than install the `requirements`
 
 ```sh
 
-pip install -r requirements
+pip install -r requirements.tx
 
 ```
 Now install the package by running the following commands
