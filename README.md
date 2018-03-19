@@ -25,7 +25,7 @@ Than install the `requirements`
 
 ```sh
 
-pip install -r requirements.tx
+pip install -r requirements.txt
 
 ```
 Now install the package by running the following commands
@@ -58,6 +58,13 @@ npw -low file_path urlpath
 
 ```
 
+
+To get the contents of a `urlpath` to a local file run the following command
+
+```
+npw -g urlpath file_path
+
+```
 
 ![Usage](./usage.gif)
 
