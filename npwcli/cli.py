@@ -4,17 +4,19 @@ Notepad.pw CLI
 
 Usage: 	
 	npw [options] FILE LINK
+	npw --get LINK FILE
 
 
 Example:
 	npw -lo test.py testingthiscli
 
 Options:
--h, --help      	Show this screen
---version       	Show version
--l, --live-update   Enable live update on notepad
--o, --overwrite     Overwrite notepad contents
--w ,--watch         Watch file for changes 
+	-h, --help		Show this screen
+	--version       	Show version
+	-l, --live-update   	Enable live update on notepad
+	-o, --overwrite     	Overwrite notepad contents
+	-w ,--watch         	Watch file for changes 
+	-g, --get           	Copy contents of pad to a file
 
 Note: Watch mode will overwrite contents of the notepad
 
@@ -25,7 +27,6 @@ import time
 
 from docopt import docopt
 from termcolor import cprint
-from pprint import pprint
 
 
 from npwcli.update_content import Notepad
@@ -55,6 +56,8 @@ def start():
 	live_update = arguments.get('--live-update', False)
 	watch = arguments.get('--watch', False)
 
+	get= arguments.get('--get', False)
+
 
 
 	link = arguments.get('LINK', None)
@@ -72,6 +75,13 @@ def start():
 		return -1
 
 	
+
+	if(get):
+		notepad.save_to_file(filename, True)
+		cprint("Saved contests of {} to {} succesfully".format(link, filename), SUCCESS)
+		return 1;
+
+
 
 
 	if(notepad.haspw):

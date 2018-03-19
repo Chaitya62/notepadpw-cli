@@ -87,6 +87,14 @@ class Notepad:
         return False
 
 
+    def save_to_file(self, filename, overwrite):
+
+        with open(filename, 'w') as f:
+            f.write(self.content)
+
+        return
+
+
     def save_file(self, filepath, overwrite):
 
         file_content = self.get_content_from_file_path(filepath)
