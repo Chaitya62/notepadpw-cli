@@ -12,3 +12,7 @@ Version 1.1.1:
 Version 1.1.2:
 
 	Fix but with get feature
+
+Version 1.1.3:
+
+	Fix minor bugs

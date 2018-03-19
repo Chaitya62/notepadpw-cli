@@ -62,9 +62,11 @@ npw -low file_path urlpath
 To get the contents of a `urlpath` to a local file run the following command
 
 ```
-npw -g urlpath file_path
+npw -g file_path urlpath 
 
 ```
+
+Note: Using other flags with g flag is redundant
 
 ![Usage](./usage.gif)
 
@@ -81,7 +83,7 @@ Please reach out to me if you wish to contribute to this project
 
 * **Chaitya Shah**  - [Chaitya62](https://github.com/Chaitya62)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Chaitya62/notepadpw-cli/contributors) who participated in this project.
 
 ## License
 

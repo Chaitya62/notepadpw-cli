@@ -3,20 +3,19 @@
 Notepad.pw CLI
 
 Usage: 	
-	npw [options] FILE LINK
-	npw [-g] LINK FILE
-
+    npw options FILE LINK 
 
 Example:
 	npw -lo test.py testingthiscli
 
 Options:
-	-h, --help		Show this screen
-	--version       	Show version
-	-l, --live-update   	Enable live update on notepad
-	-o, --overwrite     	Overwrite notepad contents
-	-w ,--watch         	Watch file for changes 
-	-g        	   	Copy contents of pad to a file
+
+    -h, --help          Show this screen
+    --version           Show version
+    -g, --get           Copy the contents of pad to a file
+    -l, --live-update   Enable live update on notepad
+    -o, --overwrite     Overwrite notepad contents
+    -w, --watch         Watch file for changes
 
 Note: Watch mode will overwrite contents of the notepad
 
@@ -56,11 +55,16 @@ def start():
 	live_update = arguments.get('--live-update', False)
 	watch = arguments.get('--watch', False)
 
-	get= arguments.get('-g', False)
+
+
+	get= arguments.get('--get', False)
 
 
 
-	link = arguments.get('LINK', None)
+	link = arguments.get('LINK', ' ')
+
+	
+
 
 
 	try: 
@@ -71,6 +75,8 @@ def start():
 
 	except Exception as e:
 
+		print(e.stacktrace())
+
 		cprint("\nError: Something went wrong...", WARNING)
 		return -1
 
@@ -78,7 +84,7 @@ def start():
 
 	if(get):
 		notepad.save_to_file(filename, True)
-		cprint("Saved contests of {} to {} succesfully".format(link, filename), SUCCESS)
+		cprint("Saved contents of {} to {} succesfully".format(link, filename), SUCCESS)
 		return 1;
 
 
