@@ -25,7 +25,7 @@ Than install the `requirements`
 
 ```sh
 
-pip install -r requirements
+pip install -r requirements.tx
 
 ```
 Now install the package by running the following commands
@@ -47,6 +47,17 @@ To save contents of a file to https://notepad.pw/urlpath
 npw -lo file_path urlpath
 
 ```
+
+To watch the file for changes add `--watch` or `-w` flag
+
+Example
+
+```bash
+
+npw -low file_path urlpath
+
+```
+
 
 ![Usage](./usage.gif)
 
