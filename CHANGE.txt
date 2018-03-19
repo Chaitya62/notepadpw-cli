@@ -8,3 +8,7 @@ Version 1.1.0:
 Version 1.1.1:
 	
 	Add get feature
+
+Version 1.1.2:
+
+	Fix but with get feature

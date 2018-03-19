@@ -4,7 +4,7 @@ Notepad.pw CLI
 
 Usage: 	
 	npw [options] FILE LINK
-	npw --get LINK FILE
+	npw [-g] LINK FILE
 
 
 Example:
@@ -16,7 +16,7 @@ Options:
 	-l, --live-update   	Enable live update on notepad
 	-o, --overwrite     	Overwrite notepad contents
 	-w ,--watch         	Watch file for changes 
-	-g, --get           	Copy contents of pad to a file
+	-g        	   	Copy contents of pad to a file
 
 Note: Watch mode will overwrite contents of the notepad
 
@@ -56,7 +56,7 @@ def start():
 	live_update = arguments.get('--live-update', False)
 	watch = arguments.get('--watch', False)
 
-	get= arguments.get('--get', False)
+	get= arguments.get('-g', False)
 
 
 
