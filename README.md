@@ -72,6 +72,10 @@ Note: Using other flags with g flag is redundant
 
 
 
+## Known Issues
+
+Windows doesn't support live reload - possible reason socketio is not supported 
+
 
 
 ## Contributing
